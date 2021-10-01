@@ -33,19 +33,33 @@ function newQuiz() {
           alert("You're out of time!");
         }
       }, 1000);
+      askquestion()
 }
  
-function askquestion()
+function askquestion(){
+    document.querySelector(".questionTitle").textContent=questions[questionIndex].question
+    document.querySelector("#btn1").textContent=questions[questionIndex].choices[0]
+document.querySelector("#btn2").textContent=questions[questionIndex].choices[1]
+document.querySelector("#btn3").textContent=questions[questionIndex].choices[2]
+document.querySelector("#btn4").textContent=questions[questionIndex].choices[3]
+} 
 
 
 
+function chooseA() { checkAnswer("a"); }
+function chooseB() { checkAnswer("b"); }
+function chooseC() { checkAnswer("c"); }
+function chooseD() { checkAnswer("d"); }
 
-function chooseA() { checkAnswer(1); }
-function chooseB() { checkAnswer(2); }
-function chooseC() { checkAnswer(3); }
-function chooseD() { checkAnswer(4); }
-
-
+function checkAnswer(guess) {
+    if(guess===questions[questionIndex].answer.charAt(0)){
+        alert('Correct!')
+    } else {
+        alert('Wrong!')
+    }
+    questionIndex++;
+    askquestion();
+}
 var questions = [
     {
         question: "What year was Javascript invented?",
