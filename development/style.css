@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif; 
+    
+}
+
+body{
+    background: rgb(31, 31, 73);
+}
+
+
+.instructions 
+{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.start_btn{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start_btn button{
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(101, 138, 138);
+    padding: 25px 35px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background:powderblue;
+    cursor: pointer;
+}
+
+.instructions {
+    width: 540px;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+
+
+.title{
+    
+    height: 60px;
+    width:100%;
+    border-bottom: 1px solid blue;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.clock, .timesup{
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.time{
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+}
+
+
+.score
+{
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.initials
+{   
+    display: none;
+    color:blue;
+    font-size: large;
+    font-weight:bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.questions 
+{
+    display: none;
+}
+
+
+
+
+
+
