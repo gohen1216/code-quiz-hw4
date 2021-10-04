@@ -7,7 +7,9 @@ const scoretextEL = document.querySelector("#scoretext")
 const initialsEL = document.querySelector(".initials")
 const inputEL = document.querySelector(".initials input")
 const submitbtnEL = document.querySelector(".submit_btn")
-console.log(scoretextEL, inputEL)
+const highscoresEL = document.querySelector("#highscores")
+const scores = [
+]
 
 
 start_btn.onclick = ()=>{
@@ -23,6 +25,15 @@ start_btn.onclick = ()=>{
      initials:userinitials,score:totalTime
  }
  console.log(scoreobj)
+scores.push(scoreobj)
+localStorage.setItem("scores",JSON.stringify(scores))
+highscoresEL.innerHTML = "";
+scores.forEach(function(obj){
+    const pEL= document.createElement("p")
+    pEL.textContent="Initials: "+  obj.initials + " Score: "+obj.score
+    highscoresEL.appendChild(pEL)
+})
+
 }
 
 var totalTime = 201;
