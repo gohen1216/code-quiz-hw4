@@ -2,10 +2,12 @@ const start_btn = document.querySelector(".start_btn button");
 const instructions= document.querySelector(".instructions");
 const questionsEL= document.querySelector(".questions")
 const timerEL = document.querySelector('.time');
-
-
-
-
+const scoreEL = document.querySelector(".score") 
+const scoretextEL = document.querySelector("#scoretext")
+const initialsEL = document.querySelector(".initials")
+const inputEL = document.querySelector(".initials input")
+const submitbtnEL = document.querySelector(".submit_btn")
+console.log(scoretextEL, inputEL)
 
 
 start_btn.onclick = ()=>{
@@ -15,6 +17,14 @@ start_btn.onclick = ()=>{
     timerEL.style.display="block"; 
     newQuiz()    
  }
+ submitbtnEL.onclick = ()=>{
+ const userinitials = inputEL.value
+ const scoreobj = {
+     initials:userinitials,score:totalTime
+ }
+ console.log(scoreobj)
+}
+
 var totalTime = 201;
 var questionIndex=0;
 var interval;
@@ -31,6 +41,9 @@ function newQuiz() {
           timerEL.innerHTML='Done';
           // or...
           alert("You're out of time!");
+        
+              endgame()
+      
         }
       }, 1000);
       askquestion()
@@ -44,6 +57,13 @@ document.querySelector("#btn3").textContent=questions[questionIndex].choices[2]
 document.querySelector("#btn4").textContent=questions[questionIndex].choices[3]
 } 
 
+function endgame() {
+    questionsEL.style.display="none" 
+    timerEL.style.display="none"  
+    scoreEL.style.display="block"  
+    initialsEL.style.display="block"
+    scoretextEL.textContent=totalTime
+}
 
 
 function chooseA() { checkAnswer("a"); }
@@ -56,9 +76,19 @@ function checkAnswer(guess) {
         alert('Correct!')
     } else {
         alert('Wrong!')
+        totalTime-=10
     }
     questionIndex++;
+    if(questionIndex===questions.length){
+        clearInterval(interval);
+            endgame()
+        
+    }else{
+       askquestion(); 
     askquestion();
+       askquestion(); 
+    }
+    
 }
 var questions = [
     {
